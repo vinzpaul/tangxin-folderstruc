@@ -25,13 +25,29 @@ Sentry.init({
 import { TESTING_ENV } from '@env';
 
 type Props = {}
-const App: React.FC = () => {
+const App: React.FC = (props: Props) => {
 
   //Sentry
   // Sentry.captureMessage('Hello Test')
   // Sentry.captureEvent({
   //   message: 'test',
   // })
+
+  //Protobuf
+  const auth = require('./i18n/auth_pb');
+  const authObj = new auth.User();
+  authObj.setEmail('1bit@gmail.com');
+  authObj.setPassword('Pass123');
+
+  //Serializing the data
+  const serializedData = authObj.serializeBinary();
+  console.log(serializedData)
+  //Deserializing the data
+  const desData = auth.User.deserializeBinary(serializedData);
+  console.log(desData)
+  //Convert to JSON
+  const jsonData = desData.toObject();
+  console.log(jsonData)
 
   return (
     <Provider store={store}>
