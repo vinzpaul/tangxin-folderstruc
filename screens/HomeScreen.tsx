@@ -1,14 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from "react-native";
 
-import { useSelector, useDispatch } from 'react-redux';
+import {useSelector, useDispatch, useStore} from 'react-redux';
 
 const HomeScreen = ({navigation}: any) => {
+
+    const models = useSelector((store) => store["models"].current.length)
+
     return (
         <View style={styles.container}>
-            <Text>You have friends.</Text>
+            <Text>You have {models} followed models.</Text>
 
-            <Button title="Add some Friends" onPress={() => navigation.navigate('Friends')} />
+            <Button title="Add some Models" onPress={() => navigation.navigate('Models')} />
         </View>
     )
 }

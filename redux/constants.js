@@ -1,0 +1,1 @@
+export const FOLLOW_MODEL = 'FOLLOW_MODEL';

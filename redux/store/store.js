@@ -1,9 +1,8 @@
 import { createStore, combineReducers } from 'redux';
-import FriendsReducer from "../reducers/FriendsReducer";
-import friendsReducer from "../reducers/FriendsReducer";
+import modelsReducer from "../reducers/ModelsReducer";
 
 const rootReducer = combineReducers({
-    friends: friendsReducer
+    models: modelsReducer
 })
 
 export const store = createStore(rootReducer);
